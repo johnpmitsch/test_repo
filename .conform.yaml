@@ -1,4 +1,0 @@
-policies:
-  - type: commit
-    spec:
-      maximumOfOneCommit: true
