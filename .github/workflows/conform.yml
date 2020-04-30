@@ -9,6 +9,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
+      with:
+        fetch-depth: 20
     - name: cat 
       run: cat .git/config
     - name: Checkout master
@@ -18,6 +20,5 @@ jobs:
     - name: branch list
       run: git branch
     - name: Conform Action
-      uses: talos-systems/conform@v0.1.0-alpha.19
-    # The type of runner that the job will run on
+      run: test `git log  --oneline --no-merges HEAD ^master   | wc -l ` = 1
     runs-on: ubuntu-latest
